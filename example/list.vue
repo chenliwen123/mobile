@@ -4,8 +4,7 @@
 
       <!-- 插槽内容 start -->
 
-      <van-cell class="list-enter-active list-enter" :class="{'list-enter-to':animation[index]}" v-for="(item,index) in list" :key="item" :title="item">{{animationfun(index)}}</van-cell>
-      <!-- <van-cell v-for="(item,index) in list" :key="item" :title="item">{{animationfun(index)}}</van-cell> -->
+      <van-cell v-for="item in list" :key="item" :title="item"></van-cell>
 
       <!-- 插槽内容 end -->
       
@@ -49,10 +48,6 @@ export default {
       }, 1000);
       // 换成你请求的方法 end
     },
-    animationfun(index){
-        this.animation[index] = true;
-    }
-    
   },
   mounted(){
 }
@@ -61,45 +56,5 @@ export default {
 </script>
 
 <style scoped>
-.list-enter {
-    opacity: 0;
-    transform: translateY(100%);
-}
-.list-enter-active {
-    transition: .3s;
-}
-.list-enter-to {
-    opacity: 1;
-    transform: translateY(0);
-}
-.list-enter-active:nth-child(10n+1) {
-    transition-delay: .1s;
-}
-.list-enter-active:nth-child(10n+2) {
-    transition-delay: .2s;
-}
-.list-enter-active:nth-child(10n+3) {
-    transition-delay: .3s;
-}
-.list-enter-active:nth-child(10n+4) {
-    transition-delay: .4s;
-}
-.list-enter-active:nth-child(10n+5) {
-    transition-delay: .5s;
-}
-.list-enter-active:nth-child(10n+6) {
-    transition-delay: .6s;
-}
-.list-enter-active:nth-child(10n+7) {
-    transition-delay: .7s;
-}
-.list-enter-active:nth-child(10n+8) {
-    transition-delay: .8s;
-}
-.list-enter-active:nth-child(10n+9) {
-    transition-delay: .9s;
-}
-.list-enter-active:nth-child(10n+10) {
-    transition-delay: 1s;
-}
+
 </style>

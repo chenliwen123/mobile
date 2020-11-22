@@ -1,5 +1,5 @@
 <template>
-<div class="text">
+<div class="TheList">
   <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
     <van-list
       v-model="ploading"
@@ -38,23 +38,22 @@ export default {
     
   },
   watch:{
-    loading:{
+    loading:{  // 解决loading 警告
       handler(){
         this.ploading = this.loading;
       },  
       deep:true //true 深度监听
     },
-    // listnum:{
-    //   handler(){
-    //     // eslint-disable-next-line no-debugger
-    //     debugger
-    //     this.$refs.vanlist.$slots.default.forEach(element => {
-    //       // element.data.class.push({'list-enter-to':true})
-    //       element.data.staticClass = 'list-enter-active list-enter list-enter-to'
-    //     });
-    //     console.log(this.$refs.vanlist.$slots)
-    //   },
-    // }
+    listnum:{  // 加载列表友好显示
+      handler(){
+        console.log(this.listnum);
+          setTimeout(() => {
+            this.$refs.vanlist.$slots.default && this.$refs.vanlist.$slots.default.forEach(element => {
+            element.elm.classList.add('list-enter-active')
+          })
+          }, 0);
+      },
+    }
   },
   data() {
     return {
@@ -83,51 +82,53 @@ export default {
     },
   },
   mounted(){
-    // van-list__placeholder
-    // van-list__loading
   }
 };
 </script>
-<style scoped>
-/* .list-enter {
-    opacity: 0;
-    transform: translateY(100%);
+<style>
+.TheList .van-list > div{
+  opacity: 0;
+  transform: translateY(100%);
 }
-.list-enter-active {
+.TheList .list-enter-active {
     transition: .3s;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
-.list-enter-to {
-    opacity: 1;
-    transform: translateY(0);
-}
-.list-enter-active:nth-child(10n+1) {
+.TheList .van-list__finished-text,.TheList .van-list__placeholder,.TheList .van-list__loading{
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    }
+.TheList .list-enter-active:nth-child(10n+1) {
     transition-delay: .1s;
 }
-.list-enter-active:nth-child(10n+2) {
+.TheList .list-enter-active:nth-child(10n+2) {
     transition-delay: .2s;
 }
-.list-enter-active:nth-child(10n+3) {
+.TheList .list-enter-active:nth-child(10n+3) {
     transition-delay: .3s;
 }
-.list-enter-active:nth-child(10n+4) {
+.TheList .list-enter-active:nth-child(10n+4) {
     transition-delay: .4s;
 }
-.list-enter-active:nth-child(10n+5) {
+.TheList .list-enter-active:nth-child(10n+5) {
     transition-delay: .5s;
 }
-.list-enter-active:nth-child(10n+6) {
+.TheList .list-enter-active:nth-child(10n+6) {
     transition-delay: .6s;
 }
-.list-enter-active:nth-child(10n+7) {
+.TheList .list-enter-active:nth-child(10n+7) {
     transition-delay: .7s;
 }
-.list-enter-active:nth-child(10n+8) {
+.TheList .list-enter-active:nth-child(10n+8) {
     transition-delay: .8s;
 }
-.list-enter-active:nth-child(10n+9) {
+.TheList .list-enter-active:nth-child(10n+9) {
     transition-delay: .9s;
 }
-.list-enter-active:nth-child(10n+10) {
+.TheList .list-enter-active:nth-child(10n+10) {
     transition-delay: 1s;
-} */
+}
+</style>
+<style scoped>
 </style>
