@@ -4,7 +4,8 @@
 
       <!-- 插槽内容 start -->
 
-      <van-cell v-for="item in list" :key="item" :title="item"></van-cell>
+      <div  v-for="item in list" :key="item">{{item}}</div>
+      <!-- <van-cell v-for="item in list" :key="item" :title="item"></van-cell> -->
 
       <!-- 插槽内容 end -->
       
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-import TheList from '@/components/TheList'
+import TheList from '../node_modules/clwlist/TheList'
 export default {
   name:'TheListTest',
   components:{
