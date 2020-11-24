@@ -15,6 +15,7 @@
 
 <script>
 import TheList from '../node_modules/clwlist/TheList'
+// import TheList from '@/components/TheList.vue'
 export default {
   name:'TheListTest',
   components:{

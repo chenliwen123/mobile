@@ -1,12 +1,14 @@
 {
-  "name": "mobile",
-  "version": "0.1.0",
+  "name": "{{ name }}",
+  "version": "1.0.0",
+  "description": "{{description}}",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "author": "{{author}}",
   "dependencies": {
     "core-js": "^3.6.5",
     "vant": "^2.10.14",
@@ -19,7 +21,6 @@
     "@vue/cli-service": "^4.5.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-import": "^1.13.1",
-    "clwlist": "^1.0.1",
     "cssnano-preset-advanced": "^4.0.7",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
